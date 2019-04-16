@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Results</title>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments :: main-top-border">
+
+</div>
+
+<head th:replace="fragments :: head">
+
+</head>
+
+
+<div th:replace="fragments :: logo-lg">
+
+</div>
+
+
+<div th:replace="fragments :: progress-bar">
+
+</div>
+
+<div th:replace="fragments :: gb_result">
+
+</div>
+
+<div id="yearPieContainer" class="container-fluid">
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</div>
+
+<div th:replace="fragments :: mod_breakdown">
+
+</div>
+
+
+
+
+<!--<div th:replace="fragments :: year_breakdown">-->
+
+<!--</div>-->
+
+<div th:replace="fragments :: gb_res_data">
+
+</div>
+
+<footer th:fragment="footer" class="container-fluid text-center bg-lightgray">
+    <div class="copyrights" style="margin-top:25px;">
+        <p>WebDevK © 2016, All Rights Reserved
+            <br/>
+            <span>Web Design By: Kieran Burge</span></p>
+        <p><a href="https://www.linkedin.com/in/kieran-burge-a53504124/" target="_blank">Linkedin <i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></p>
+    </div>
+</footer>
+
+
+</body>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    window.onload = function () {
+        var score = /*[[${scores.score}]]*/ '0';
+        var marksAvailable = /*[[${scores.marksAvailable}]]*/ '0';
+        var marksLost = /*[[${scores.marksLost}]]*/ '0';
+        var weight = /*[[${scores.weightProvided}]]*/ '0';
+        var desiredGrade = /*[[${gradeDesired}]]*/ '0';
+        var marksNeeded = desiredGrade - score;
+        var progress = (score/desiredGrade) * 100;
+        $(".progress-bar").width(progress + '%');
+        if (progress % 1 !== 0) {
+            $(".progress-bar").text(progress.toFixed(1) + '%');
+        } else {
+            $(".progress-bar").text(progress + '%');
+        }
+        modBreakdownInputs();
+
+        CanvasJS.addColorSet("currentYear",
+            [//colorSet Array
+                "#90EE90",
+                "#99ebee",
+                "#ee0000"
+            ]);
+
+        CanvasJS.addColorSet("prevYear",
+            [//colorSet Array
+                "#90EE90",
+                "#ee0000"
+            ]);
+
+        drawCharts();
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            colorSet: "currentYear",
+            backgroundColor: "#f7ffff",
+            title:{
+                text: "Year Breakdown",
+                horizontalAlign: "center"
+            },
+            data: [{
+                type: "doughnut",
+                startAngle: 270,
+                //innerRadius: 60,
+                indexLabelFontSize: 17,
+                indexLabel: "{label} - #percent%",
+                toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                dataPoints: [
+                    { y: score, label: "Total Mark So Far"},
+                    { y: marksAvailable, label: "Marks Available To Get" },
+                    { y: marksLost, label: "Marks Lost" },
+                ]
+            }]
+        });
+        chart.render();
+
+    };
+
+    $("#reCalcExams").on("click", function() {
+        var total=0;
+
+        $('.exam-score-input').each(function () {
+            var score = $(this).val();
+            var exWeight = $(this).closest('.exam-breakdown-row').find('.breakdown-weight').text();
+            var weight = $(this).closest('.mod-breakdown-container-current').find('.mod-current-info').find('.mod-current-weight').text();
+            var contribution = (weight/100)*(exWeight/100);
+            total = total + (score * contribution);
+        });
+
+        $('.mod-score-input').each(function () {
+            var score = $(this).val();
+            var weight = $(this).closest('.mod-breakdown-row-fut').find('.breakdown-weight-fut').text();
+            total = total + (score * (weight/100));
+        });
+
+        $('#reCalculateContainer').height('300px');
+        var score = parseFloat($('#totalScore').text());
+        score = score + total;
+        var chart = new CanvasJS.Chart("reCalculateContainer", {
+            animationEnabled: true,
+            colorSet: "prevYear",
+            backgroundColor: "#f7ffff",
+            title:{
+                text: "Re-Calculated Results",
+                horizontalAlign: "center"
+            },
+            data: [{
+                type: "doughnut",
+                startAngle: 270,
+                //innerRadius: 60,
+                indexLabelFontSize: 17,
+                indexLabel: "{label} - #percent%",
+                toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                dataPoints: [
+                    { y: score, label: "Re-Calculated Marks" },
+                    { y: 100 - score, label: "Unachieved Marks" },
+                ]
+            }]
+        });
+        chart.render();
+
+        var p = $("#reCalculateContainer").offset();
+        $(window).scrollTop(p.top);
+
+    });
+
+    function modBreakdownInputs() {
+        $('.exam-breakdown-row').each(function () {
+            var taken = $(this).find('.breakdown-taken').text();
+            if(taken == "No"){
+                $(this).closest('.exam-breakdown-row').find('.breakdown-score').html('<input class="exam-score-input"/>');
+            }
+            else if(taken == "Yes"){
+
+            }
+            else{
+
+            }
+        });
+        $('.mod-breakdown-row-fut').each(function () {
+            $(this).find('.breakdown-score-fut').html('<input class="mod-score-input"/>');
+        })
+    }
+
+    function drawCharts() {
+
+        var years = /*[[${yearScores}]]*/ '0';
+        var i=1;
+        $( ".year-chart" ).each(function() {
+            $(this).attr('id', 'yearChart'+i);
+            i++;
+        });
+
+        var scores = new Array();;
+
+        $('.year-score-data').each(function () {
+            var score = $(this).text();
+            scores.push(score);
+        });
+
+        var y;
+        for(y = 1; y < i -1; y++){
+            var score = parseFloat(scores[y-1]);
+            var left = parseFloat((100 - scores[y-1]));
+            var chart = new CanvasJS.Chart("yearChart"+y, {
+                animationEnabled: true,
+                colorSet: "prevYear",
+                title:{
+                    text: "Year "+y,
+                    horizontalAlign: "left"
+                },
+                data: [{
+                    type: "doughnut",
+                    startAngle: 270,
+                    //innerRadius: 60,
+                    indexLabelFontSize: 17,
+                    indexLabel: "{label} - #percent%",
+                    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                    dataPoints: [
+                        { y: score, label: "Marks Achieved" },
+                        { y: left, label: "Marks Lost" },
+
+                    ]
+                }]
+            });
+            chart.render();
+        }
+    }
+    /*]]>*/
+
+</script>
+
+</html>

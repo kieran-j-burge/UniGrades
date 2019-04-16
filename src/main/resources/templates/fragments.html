@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragement="head">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8"/>
+    <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#353535"/>
+    <meta name="keywords" content="grades calculator, marks calculator, degree calculator, exam calculator, work out marks, year score, calculator "/>
+    <meta name="description" content="Grades Calculator - Calculate your current qualification mark/score/grade and figure out what you need to get to  achieve your desired grade"/>
+    <title>Grade Calculator</title>
+    <script src="/css/js/jquery-3.3.1.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/css/bootstrap.css"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/css/bootstrap-grid.css"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/css/bootstrap-reboot.css"/>
+    <link rel="stylesheet" th:href="@{/css/master.css}" href="../static/css/master.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet"/>
+    <script  th:src="@{/css/js/jquery.js}" src="../static/css/js/jquery.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-117089982-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-117089982-2');
+    </script>
+
+</head>
+<body>
+<div th:fragment="main-top-border">
+    <div id="main-top-border">
+
+    </div>
+</div>
+
+<div th:fragment="side-nav" id="flipkart-navbar">
+        <div class="container">
+            <div class="row row1">
+                <ul class="largenav center">
+                    <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 1</a></li>
+                    <li class="upper-links"><a class="links" href="https://campusbox.org/">Link 2</a></li>
+                    <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 3</a></li>
+                    <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 4</a></li>
+                    <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 5</a></li>
+                    <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 6</a></li>
+                    <li class="upper-links">
+
+                    </li>
+                    <li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Dropdown</a>
+                        <ul class="dropdown-menu">
+                            <li class="profile-li"><a class="profile-links" href="http://yazilife.com/">Link</a></li>
+                            <li class="profile-li"><a class="profile-links" href="http://hacksociety.tech/">Link</a></li>
+                            <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
+                            <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
+                            <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
+                            <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
+                            <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">Link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="row row2">
+                <div class="col-sm-2">
+                    <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
+                    <h1 style="margin:0px;"><span class="largenav">Brand</span></h1>
+                </div>
+                <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
+                    <div class="row">
+                        <input class="flipkart-navbar-input col-xs-11" type="" placeholder="Search for Products, Brands and more" name=""/>
+                        <button class="flipkart-navbar-button col-xs-1">
+                            <svg width="15px" height="15px">
+                                <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="cart largenav col-sm-2">
+                    <a class="cart-button">
+                        <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
+                            <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>
+                        </svg> Link
+                        <span class="item-number ">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="logo-lg" th:fragment="logo-lg">
+    <div class="logo-lg">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="img-logo">
+                        <img src="/images/logo.png" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="home-options">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 home-option">
+                    <a href="/qualification/uni_gb">
+                     <h1>University Calculator</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="home-top">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active">
+                           Top 5 Calculators
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                        <a href="#" class="list-group-item list-group-item-action ">Vestibulum at eros</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="add-module-done" class="module-row module-row-done">
+    <div class="col-md-6 col-sm-12 float-left">
+        <h3 class="label">Module Name</h3>
+        <input type="text" class="form-control module-name" placeholder="Module Name" />
+    </div>
+    <div class="col-md-2 col-sm-12 float-left">
+        <h3 class="label">Module Score</h3>
+        <input type="text" class="form-control module-score" placeholder="00.0%" />
+    </div>
+    <div class="col-md-2 col-sm-12 float-left">
+        <h3 class="label">Module Weighting</h3>
+        <input  class="form-control mod-done-weighting" placeholder="00.0%"/>
+    </div>
+    <div class="col-md-2 col-sm-12 float-left">
+        <h3 class="label">Remove?</h3>
+        <button type="button" class="btn btn-danger remove-module">Remove</button>
+    </div>
+</div>
+
+<div th:fragment="add-module-future" class="module-row module-row-fut">
+    <div class="col-md-6 col-sm-12 float-left">
+        <h3 class="label">Module Name</h3>
+        <input type="text" class="form-control module-name" placeholder="Module Name" />
+    </div>
+
+    <div class="col-md-2 col-sm-12 float-left">
+        <h3 class="label">Module Weighting</h3>
+        <input  class="form-control mod-fut-weighting" placeholder="00.0%"/>
+    </div>
+    <div class="col-md-2 col-sm-12 float-left">
+        <h3 class="label">Remove?</h3>
+        <button type="button" class="btn btn-danger remove-module">Remove</button>
+    </div>
+</div>
+
+<div th:fragment="add-module-current" class="module-row module-row-current">
+
+    <div class="row mod-current-info">
+        <div class="col-md-12 col-sm-12 mod-current-name">
+            <h3 class="label">Module Name</h3>
+            <input type="text" class="form-control module-name" placeholder="Module Name" />
+        </div>
+        <div class="col-md-12 col-sm-12">
+            <h3 class="label">Module Weighting</h3>
+            <input  class="form-control mod-current-weighting" placeholder="00.0%"/>
+        </div>
+    </div>
+    <div id="examAppender" class="step-functionality">
+        <div class="row exam-row">
+            <div class="col-md-4">
+                <h3 class="label">Exam Name</h3>
+                <input type="text" class="form-control exam-name" placeholder="Exam Name" />
+            </div>
+            <div class="col-md-3">
+                <h3 class="label">Exam Weighting</h3>
+                <input  class="form-control exam-weighting" placeholder="00.0%"/>
+            </div>
+            <div class="col-md-1">
+                <h3 class="label">Completed?</h3>
+                <select  class="form-control exam-complete">
+                    <option>Pick</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <h3 class="label exam-score-lable hidden">Exam Score</h3>
+                <input type="text" class="form-control exam-score hidden" placeholder="Exam Score" />
+            </div>
+            <div class="col-md-2">
+                <h3 class="label">Remove?</h3>
+                <button type="button" class="btn btn-danger remove-exam">Remove</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button id="addExamBtn" type="button" class="btn btn-primary add-exam-btn">Add Exam</button>
+            <button type="button" class="btn btn-danger remove-module">Remove</button>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="add-exam" class="row exam-row">
+    <div class="col-md-4">
+        <h3 class="label">Exam Name</h3>
+        <input type="text" class="form-control exam-name" placeholder="Exam Name" />
+    </div>
+    <div class="col-md-3">
+        <h3 class="label">Exam Weighting</h3>
+        <input  class="form-control exam-weighting" placeholder="00.0%"/>
+    </div>
+    <div class="col-md-1">
+        <h3 class="label">Completed?</h3>
+        <select  class="form-control exam-complete">
+            <option>Pick</option>
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <h3 class="label exam-score-lable hidden">Exam Score</h3>
+        <input type="text" class="form-control exam-score hidden" placeholder="Exam Score" />
+    </div>
+    <div class="col-md-2">
+        <h3 class="label">Remove?</h3>
+        <button type="button" class="btn btn-danger remove-exam">Remove</button>
+    </div>
+</div>
+
+    <div th:fragment="mod_breakdown" id="modBreakdownContainer" class="container">
+        <h1>Module Breakdowns</h1>
+        <p><i>**Use the module breakdowns below to input untaken exam scores and module scores to see what scores you need achieve your desired grade</i></p>
+        <h2 class="mod-breakdown-headers">Completed Modules</h2>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Module</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Score</th>
+                <th scope="col">Completed</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="m : ${modules.doneList}">
+                <tr>
+                    <th scope="row" th:text="${m.name}"></th>
+                    <td th:text="${m.weight}"></td>
+                    <td th:text="${m.currentScore}"></td>
+                    <td th:text="${m.weightCompleted}"></td>
+                </tr>
+                <th:block th:each="e : ${m.examList}">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <h1 th:text="${e.name}" class="breakdown-name"></h1>
+                        </div>
+                        <div class="col-md-3">
+                            <h1 th:text="${e.taken}" class="breakdown-taken"></h1>
+                        </div>
+                        <div class="col-md-3">
+                            <h1 th:text="${e.exWeight}" class="breakdown-weight"></h1>
+                        </div>
+                        <div class="col-md-3 breakdown-score-container">
+                            <h1 th:text="${e.score}" class="breakdown-score"></h1>
+                        </div>
+                    </div>
+                </th:block>
+            </th:block>
+            </tbody>
+        </table>
+
+        <h2 class="mod-breakdown-headers">Current Modules</h2>
+        <th:block th:each="m : ${modules.currList}">
+            <div class="mod-breakdown-container-current">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Module</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Completed</th>
+                    </tr>
+                    </thead>
+                    <tbody class="mod-current-info">
+                        <tr>
+                            <th scope="row" th:text="${m.name}"></th>
+                            <td th:text="${m.weight}" class="mod-current-weight"></td>
+                            <td th:text="${m.currentScore}"></td>
+                            <td th:text="${m.weightCompleted}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Exam</th>
+                        <th scope="col">Completed</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <th:block th:each="e : ${m.examList}">
+                            <tr class="exam-breakdown-row">
+                                <th scope="row" th:text="${e.name}" class="breakdown-name"></th>
+                                <td th:text="${e.taken}" class="breakdown-taken"></td>
+                                <td th:text="${e.exWeight}" class="breakdown-weight"></td>
+                                <td th:text="${e.score}" class="breakdown-score"></td>
+                            </tr>
+                        </th:block>
+                    </tbody>
+                </table>
+            </div>
+        </th:block>
+
+        <h2 class="mod-breakdown-headers">Future Modules</h2>
+        <th:block th:each="m : ${modules.futList}">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Module</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Weight Completed</th>
+                    <th scope="col">Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="mod-breakdown-row-fut">
+                    <th scope="row" th:text="${m.name}"></th>
+                    <td th:text="${m.weight}" class="breakdown-weight-fut"></td>
+                    <td th:text="${m.weightCompleted}"></td>
+                    <td th:text="${m.currentScore}" class="breakdown-score-fut"></td>
+                </tr>
+                </tbody>
+            </table>
+            <!--<table class="table">-->
+                <!--<thead class="thead-light">-->
+                <!--<tr>-->
+                    <!--<th scope="col">Exam</th>-->
+                    <!--<th scope="col">Weight</th>-->
+                    <!--<th scope="col">Completed</th>-->
+                    <!--<th scope="col">Score</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<th:block th:each="e : ${m.examList}">-->
+                    <!--<tr class="exam-result-row">-->
+                        <!--<th scope="row" th:text="${e.name}" class="breakdown-name"></th>-->
+                        <!--<td th:text="${e.taken}" class="breakdown-taken"></td>-->
+                        <!--<td th:text="${e.exWeight}" class="breakdown-weight"></td>-->
+                        <!--<td th:text="${e.score}" class="breakdown-score"></td>-->
+                    <!--</tr>-->
+                <!--</th:block>-->
+                <!--</tbody>-->
+            <!--</table>-->
+        </th:block>
+
+        <div class="row">
+            <button id="reCalcExams" type="button" class="btn btn-primary">Re-Calculate</button>
+        </div>
+
+        <div class="row">
+            <div id="reCalculateContainer" class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+
+
+
+<div th:fragment="gb_result" id="resultDataContainer">
+    <div class="container">
+        <table class="table">
+            <!--<thead>-->
+            <!--<tr>-->
+                <!--<th scope="col">#</th>-->
+                <!--<th scope="col">First</th>-->
+                <!--<th scope="col">Last</th>-->
+                <!--<th scope="col">Handle</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <tbody>
+            <tr class="data-breakdown-row">
+                <th scope="row" >So far you have achieved:</th>
+                <td th:text="${scores.score} + '%'" id="totalScore"></td>
+            </tr>
+            <tr class="data-breakdown-row">
+                <th scope="row">The total weighting you have provided:</th>
+                <td th:text="${scores.weightProvided} + '%'"></td>
+            </tr>
+            <tr class="data-breakdown-row">
+                <th scope="row">Total marks lost so far: </th>
+                <td th:text="${scores.marksLost} + '%'"></td>
+            </tr>
+            <tr class="data-breakdown-row">
+                <th scope="row">Total marks available:  </th>
+                <td th:text="${scores.marksAvailable} + '%'"></td>
+            </tr>
+            <tr class="data-breakdown-row">
+                <th scope="row">Average mark in future exams needed:  </th>
+                <td th:text="${avMark} + '%'"></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:fragment="year_breakdown" >
+    <div class="container">
+        <div class="row">
+            <th:block th:each="y : ${yearScores}">
+                <div class="col-md-6" style="height: 400px;">
+                    <div class="year-chart">
+
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="gb_res_data" >
+    <div class="container hidden">
+        <div class="row">
+            <th:block th:each="y : ${yearScores}">
+                <p th:text="${y.score}" class="year-score-data"></p>
+            </th:block>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="progress-bar">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header text-info" th:text="'Progress to a ' + ${gradeString}"></h4>
+                    <div class="progress" style="height: 80px;">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar">
+                            <span class="current-value">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:fragment="footer" class="container-fluid text-center bg-lightgray">
+
+    <div class="copyrights" style="margin-top:25px;">
+        <p>WebDevK © 2016, All Rights Reserved
+            <br/>
+            <span>Web Design By: Kieran Burge</span></p>
+        <p><a href="https://www.linkedin.com/in/kieran-burge-a53504124/" target="_blank">Linkedin <i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></p>
+    </div>
+</footer>
+
+</body>
+</html>

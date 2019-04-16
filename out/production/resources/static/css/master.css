@@ -1,0 +1,268 @@
+
+body{
+    background-color: #f7ffff;
+}
+
+h1{
+    font-family: 'Markazi Text', serif;
+}
+h4{
+    font-family: 'Markazi Text', serif;
+}
+label{
+    font-family: 'Markazi Text', serif;
+
+}
+#main-top-border{
+    width: 100%;
+    height: 10px;
+    background-color: #000d3e;
+}
+
+.img-logo{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.main-center-container{
+    background-color: #eff7ff;
+    border-radius: 5px;
+}
+
+#custom-search-input{
+    width: 100%;
+}
+
+#searchContainer{
+    margin-top: 30px;
+}
+
+.input-group{
+    height: 60px;
+}
+
+#step1Container{
+}
+
+#step3Container{
+}
+#step4Container{
+}
+
+.select-grade{
+    width: 100%;
+}
+
+.step-btn{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.year-btn-pos{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.year-btn{
+    width: 100%;
+    height: 65px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step-btn-row{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.hidden{
+    visibility: hidden;
+    display: none;
+}
+.show{
+    visibility: visible;
+    display: block;
+}
+
+.module-score-row{
+    margin-top: 30px;
+}
+
+.module-row{
+    margin-top: 20px;
+    width: 100%;
+    padding-top: 20px;
+    border-top: 1px #bfbfbf solid;
+}
+
+.year-holder{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.float-left{
+    float: left;
+}
+
+.exam-row{
+    margin-top: 20px;
+}
+#moduleAppender{
+    margin-bottom: 20px;
+}
+#moduleAppender1{
+    margin-bottom: 20px;
+}
+#examAppender{
+    margin-bottom: 15px;
+}
+.mod-current-name{
+    margin-bottom: 10px;
+}
+.year-weight{
+    margin-bottom:5px ;
+}
+.year-btn{
+    margin-bottom: 5px;
+}
+
+.finish-row{
+    margin-top: 30px;
+}
+#finBtn{
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+.container-fluid{
+    margin-bottom: 10px;
+}
+.select-add-hundred{
+
+}
+
+.label{
+    font-size: 0.8vw;
+}
+.mod-breakdown-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+.mod-breakdown-container:nth-child(5){
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 0px solid black;
+}
+
+
+.data-breakdown-row h1{
+    font-size: 2vw;
+}
+#modBreakdownContainer{
+    margin-top: 60px;
+}
+
+.mod-breakdown-container h1{
+    font-size: 1.5vw;
+}
+
+#yearPieContainer{
+    margin-top: 60px;
+}
+.mod-breakdown-row{
+    margin-top: 10px;
+}
+.mod-breakdown-row-current{
+      margin-top: 30px;
+}
+
+.mod-breakdown-container-current{
+    margin-bottom: 40px;
+}
+
+.exam-breakdown-row{
+    margin-bottom: 5px;
+}
+
+.mod-breakdown-headers{
+    font-size: 1.5vw;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+#reCalcExams{
+    margin-left: auto;
+    margin-right: auto;
+}
+#reCalculateContainer{
+    margin-top: 60px;
+}
+.exams-container{
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px dashed;
+    border-top: 2px dashed;
+}
+.row-spacer{
+    margin-top: 10px;
+}
+.step-container{
+    margin-bottom: 60px;
+}
+.add-module-fut-btn{
+    margin-top: 10px;
+}
+.img-logo img{
+    width: 100%;
+}
+select{
+    font-family: 'Markazi Text', serif;
+}
+input{
+    font-family: 'Markazi Text', serif;
+}
+button{
+    font-family: 'Markazi Text', serif;
+}
+p{
+    font-family: 'Markazi Text', serif;
+}
+#resultDataContainer{
+    margin-top: 50px;
+}
+input{
+    border-radius: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .label{
+        font-size: 2vw;
+    }
+
+    .exam-row {
+        margin-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .label{
+        font-size: 1vw;
+    }
+
+    .exam-row {
+        margin-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed;
+    }
+}

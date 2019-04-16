@@ -1,0 +1,56 @@
+group 'UniGrades'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven {
+            url  "https://dl.bintray.com/stackmagic/maven"
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'net.swisstech:bitly-api-client:+'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+
+}
+
+dependencies {
+    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.12'
+    compile "com.github.romain-warnan:simple-java-bitly:1.1"
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile("org.springframework.boot:spring-boot-starter-mail")
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile 'org.twitter4j:twitter4j-core:4.0.4'
+    compile group: 'javax.mail', name: 'mail', version: '1.4'
+    compile('org.springframework.boot:spring-boot-devtools')
+    compile 'com.google.apis:google-api-services-urlshortener:v1-rev55-1.23.0'
+    compile group: 'com.google.api-client', name: 'google-api-client-appengine', version: '1.23.0'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.6'
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    runtime('mysql:mysql-connector-java')
+    compileOnly('org.projectlombok:lombok')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+}
+
+bootRun {
+    addResources = true
+}

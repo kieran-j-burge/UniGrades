@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+
+<head th:replace="fragments :: head">
+
+</head>
+
+<body>
+
+<div th:replace="fragments :: main-top-border">
+
+</div>
+
+
+
+
+<div th:replace="fragments :: logo-lg">
+
+</div>
+
+<div id="replaceHTML">
+    <div id="step1Container" class="step-container">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row step-count">
+                    <h1>Step 1: Choose your desired grade</h1>
+                </div>
+                <div class="row step-functionality">
+                    <div class="col-md-12">
+                        <div class="form-group select-grade">
+                            <label for="gradeSel">Final Degree:</label>
+                            <select class="form-control" id="gradeSel">
+                                <option>Pick a grade</option>
+                                <option>1st</option>
+                                <option>2:1</option>
+                                <option>2:2</option>
+                                <option>3rd</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="step2Container" class="hidden step-container">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row step-count">
+                    <h1>Step 2: How Long Is Your Course</h1>
+                </div>
+                <div class="row step-functionality">
+                    <div class="col-md-12">
+                        <div class="form-group select-grade">
+                            <label for="yearChoice">Course Length:</label>
+                            <select class="form-control" id="yearChoice">
+                                <option>Pick a year</option>
+                                <option>1 Year</option>
+                                <option>2 Years</option>
+                                <option>3 Years</option>
+                                <option>4 Years</option>
+                                <option>5 Years</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="step3Container" class="hidden step-container">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row step-count">
+                    <h1>Step 3: Current Year</h1>
+                </div>
+                <div class="row step-functionality">
+                    <div id="year1Holder" class=" col-xs-12 year-holder">
+                        <button id="yearBtn1" type="button" class="btn btn-primary year-btn">Year 1</button>
+                            <h3 class="label">Year Weighting</h3>
+                        <input id="year1Weighting" class="form-control year-weight" placeholder="00.0%"/>
+
+                            <h3 class="label">Year Score</h3>
+                        <input type="text" id="year1Score" class="form-control year-score hidden" placeholder="00.0%" />
+                    </div>
+                    <div id="year2Holder" class=" col-xs-12 year-holder">
+                        <button id="yearBtn2" type="button" class="btn btn-primary year-btn">Year 2</button>
+                        <h3 class="label">Year Weighting</h3>
+                        <input id="year2Weighting" class="form-control year-weight" placeholder="00.0%">
+                        </input>
+                        <h3 class="label">Year Score</h3>
+                        <input type="text" id="year2Score" class="form-control year-score hidden" placeholder="00.0%" />
+                    </div>
+                    <div id="year3Holder" class="col-xs-12 year-holder">
+                        <button id="yearBtn3" type="button" class="btn btn-primary year-btn">Year 3</button>
+                        <h3 class="label">Year Weighting</h3>
+                        <input id="year3Weighting" class="form-control year-weight" placeholder="00.0%">
+
+                        </input>
+                        <h3 class="label">Year Score</h3>
+                        <input type="text" id="year3Score" class="form-control year-score hidden" placeholder="00.0%" />
+                    </div>
+
+                    <div id="year4Holder" class="col-xs-12 year-holder">
+                        <button id="yearBtn4" type="button" class="btn btn-primary year-btn">Year 4</button>
+                        <h3 class="label">Year Weighting</h3>
+                        <input id="year4Weighting" class="form-control year-weight" placeholder="00.0%">
+
+                        </input>
+                        <h3 class="label">Year Score</h3>
+                        <input type="text" id="year4Score" class="form-control year-score hidden" placeholder="00.0%" />
+                    </div>
+                    <div id="year5Holder" class="col-xs-12 year-holder">
+                        <button id="yearBtn5" type="button" class="btn btn-primary year-btn">Year 5</button>
+                        <h3 class="label">Year Weighting</h3>
+                        <input id="year5Weighting" class="form-control year-weight" placeholder="00.0%">
+
+                        </input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="step4Container" class="hidden step-container">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row step-count">
+                    <h1>Step 4: Add Modules That You've Completed This Year</h1>
+                </div>
+                <div id="moduleAppender" class="row step-functionality">
+                    <div class="module-row module-row-done">
+                        <div class="col-md-6 col-sm-12 float-left">
+                            <h3 class="label">Module Name</h3>
+                            <input type="text" class="form-control module-name" placeholder="Module Name" />
+                        </div>
+                        <div class="col-md-2 col-sm-12 float-left">
+                            <h3 class="label">Module Score</h3>
+                            <input type="text" class="form-control module-score" placeholder="00.0%" />
+                        </div>
+                        <div class="col-md-2 col-sm-12 float-left">
+                            <h3 class="label">Module Weighting</h3>
+                            <input  class="form-control mod-done-weighting" placeholder="00.0%">
+                            </input>
+                        </div>
+                        <div class="col-md-2 col-sm-12 float-left">
+                            <h3 class="label">Remove?</h3>
+                            <button type="button" class="btn btn-danger remove-module">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-spacer">
+                    <div class="col-md-6">
+                        <button id="addModuleBtn" type="button" class="btn btn-primary add-module-btn">Add Module</button>
+                    </div>
+                </div>
+                <div class="row row-spacer">
+                    <button id="mvStep5" type="button" class="btn btn-primary add-module-btn center">Next Step</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="step5Container" class="hidden step-container">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row step-count">
+                    <h1>Step 5: Add Modules That You're Currently Studying</h1>
+                </div>
+                <div id="moduleAppender1" class="step-functionality">
+                    <div class="module-row module-row-current">
+
+                        <div class="row mod-current-info">
+                            <div class="col-md-12 col-sm-12 mod-current-name">
+                                <h3 class="label">Module Name</h3>
+                                <input type="text" class="form-control module-name" placeholder="Module Name" />
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <h3 class="label">Module Weighting</h3>
+                                <input  class="form-control mod-current-weighting" placeholder="00.0%">
+                                </input>
+                            </div>
+                        </div>
+                        <div id="examAppender" class="step-functionality">
+                            <div class="row exam-row">
+                                <div class="col-md-4">
+                                    <h3 class="label">Exam Name</h3>
+                                    <input type="text" class="form-control exam-name" placeholder="Exam Name" />
+                                </div>
+                                <div class="col-md-3">
+                                    <h3 class="label">Exam Weighting</h3>
+                                    <input  class="form-control exam-weighting" placeholder="00.0%"/>
+                                </div>
+                                <div class="col-md-1">
+                                    <h3 class="label">Completed?</h3>
+                                    <select  class="form-control exam-complete">
+                                        <option>Pick</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <h3 class="label exam-score-lable hidden">Exam Score</h3>
+                                    <input type="text" class="form-control exam-score hidden" placeholder="Exam Score" />
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button id="addExamBtn" type="button" class="btn btn-primary add-exam-btn">Add Exam</button>
+                                <button type="button" class="btn btn-danger remove-module">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="addModuleBtn1" type="button" class="btn btn-primary add-module-btn">Add Module</button>
+                    </div>
+                </div>
+                <div class="row finish-row">
+                    <button id="mvStep6" type="button" class="btn btn-primary center">Next Step</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="step6Container" class="hidden step-container">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row step-count">
+                    <h1>Step 6: Add Modules That You Haven't Started Yet</h1>
+                </div>
+                <div id="moduleAppender2" class="row step-functionality">
+                    <div class="module-row module-row-fut">
+                        <div class="col-md-6 col-sm-12 float-left">
+                            <h3 class="label">Module Name</h3>
+                            <input type="text" class="form-control module-name" placeholder="Module Name" />
+                        </div>
+
+                        <div class="col-md-2 col-sm-12 float-left">
+                            <h3 class="label">Module Weighting</h3>
+                            <input  class="form-control mod-fut-weighting" placeholder="00.0%"/>
+                        </div>
+                        <div class="col-md-2 col-sm-12 float-left">
+                            <h3 class="label">Remove?</h3>
+                            <button type="button" class="btn btn-danger remove-module">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button id="addModuleBtn2" type="button" class="btn btn-primary add-module-fut-btn">Add Module</button>
+                    </div>
+                </div>
+                <div class="row finish-row">
+                    <button id="finBtn" type="button" class="btn btn-primary add-module-btn">Finish!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments :: footer">
+
+</div>
+
+<script th:inline="javascript">
+    $(document).ready(function () {
+        if (localStorage.getItem("localHTMLData") === null) {
+        }
+        else{
+            $('#replaceHTML').html(localStorage.getItem("localHTMLData"));
+            loadCookies();
+        }
+        $( "#gradeSel" ).change(function() {
+            var val = $('#gradeSel').val();
+            if(val == 'Pick a grade'){
+                $('#step2Container').addClass('hidden').removeClass('show');
+            }
+            else{
+                $('#step2Container').addClass('show').removeClass('hidden');
+            }
+        });
+    });
+
+    $(document).on('click', '#addExamBtn', function(event){
+        $.get( "/template/add-exam", function( data ) {
+            $(event.target).closest('.module-row').find('#examAppender').append(data);
+        });
+    });
+
+    $(document).on('click', '.remove-exam', function(event){
+        $(this).closest('.exam-row').remove();
+    });
+
+    $(document).on('click', '.remove-module', function(event){
+        $(this).closest('.module-row').remove();
+    });
+
+    $(document).on('click', '#finBtn', function(event){
+        validityCheck();
+    });
+
+    $(document).on('click', '#addModuleBtn', function(event){
+        $.get( "/template/add-module-done", function( data ) {
+            $('#moduleAppender').append(data);
+        });
+    });
+    $(document).on('click', '#addModuleBtn1', function(event){
+        $.get( "/template/add-module-current", function( data ) {
+            $('#moduleAppender1').append(data);
+        });
+    });
+    $(document).on('click', '#addModuleBtn2', function(event){
+        $.get( "/template/add-module-future", function( data ) {
+            $('#moduleAppender2').append(data);
+        });
+    });
+
+
+
+    var btn1 = false;
+    var btn2 = false;
+    var btn3 = false;
+    var btn4 = false;
+    var btn5 = false;
+
+    $(document).on('click', '#yearBtn1', function(event){
+        btn1 = true;
+        btn2 = false;
+        btn3 = false;
+        btn4 = false;
+        btn5 = false;
+
+        $('#yearBtn1').css('background-color','#017bff');
+        $('#yearBtn2').css('background-color','grey');
+        $('#yearBtn3').css('background-color','grey');
+        $('#yearBtn4').css('background-color','grey');
+        $('#yearBtn5').css('background-color','grey');
+        $('#yearBtn1').addClass('active');
+        $('#yearBtn2').removeClass('active');
+        $('#yearBtn3').removeClass('active');
+        $('#yearBtn4').removeClass('active');
+        $('#yearBtn5').removeClass('active');
+        $('#step4Container').addClass('show').removeClass('hidden');
+        addScoreInputs(1);
+    });
+
+    $(document).on('click', '#yearBtn2', function(event){
+        btn1 = false;
+        btn2 = true;
+        btn3 = false;
+        btn4 = false;
+        btn5 = false;
+
+        $('#yearBtn2').css('background-color','#017bff');
+        $('#yearBtn1').css('background-color','grey');
+        $('#yearBtn3').css('background-color','grey');
+        $('#yearBtn4').css('background-color','grey');
+        $('#yearBtn5').css('background-color','grey');
+        $('#yearBtn1').removeClass('active');
+        $('#yearBtn2').addClass('active');
+        $('#yearBtn3').removeClass('active');
+        $('#yearBtn4').removeClass('active');
+        $('#yearBtn5').removeClass('active');
+        $('#step4Container').addClass('show').removeClass('hidden');
+        addScoreInputs(2);
+    });
+
+    $(document).on('click', '#yearBtn3', function(event){
+        btn1 = false;
+        btn2 = false;
+        btn3 = true;
+        btn4 = false;
+        btn5 = false;
+        $('#yearBtn3').css('background-color','#017bff');
+        $('#yearBtn1').css('background-color','grey');
+        $('#yearBtn2').css('background-color','grey');
+        $('#yearBtn4').css('background-color','grey');
+        $('#yearBtn5').css('background-color','grey');
+        $('#yearBtn1').removeClass('active');
+        $('#yearBtn2').removeClass('active');
+        $('#yearBtn3').addClass('active');
+        $('#yearBtn4').removeClass('active');
+        $('#yearBtn5').removeClass('active');
+        $('#step4Container').addClass('show').removeClass('hidden');
+        addScoreInputs(3);
+    });
+    $(document).on('click', '#yearBtn4', function(event){
+        btn1 = false;
+        btn2 = false;
+        btn3 = false;
+        btn4 = true;
+        btn5 = false;
+        $('#yearBtn4').css('background-color','#017bff');
+        $('#yearBtn1').css('background-color','grey');
+        $('#yearBtn2').css('background-color','grey');
+        $('#yearBtn3').css('background-color','grey');
+        $('#yearBtn5').css('background-color','grey');
+        $('#yearBtn1').removeClass('active');
+        $('#yearBtn2').removeClass('active');
+        $('#yearBtn3').removeClass('active');
+        $('#yearBtn4').addClass('active');
+        $('#yearBtn5').removeClass('active');
+        $('#step4Container').addClass('show').removeClass('hidden');
+        addScoreInputs(4);
+    });
+    $(document).on('click', '#yearBtn5', function(event){
+        btn1 = false;
+        btn2 = false;
+        btn3 = false;
+        btn4 = false;
+        btn5 = true;
+        $('#yearBtn1').css('background-color','grey');
+        $('#yearBtn2').css('background-color','grey');
+        $('#yearBtn3').css('background-color','grey');
+        $('#yearBtn4').css('background-color','grey');
+        $('#yearBtn5').css('background-color','#017bff');
+        $('#yearBtn1').removeClass('active');
+        $('#yearBtn2').removeClass('active');
+        $('#yearBtn3').removeClass('active');
+        $('#yearBtn4').removeClass('active');
+        $('#yearBtn5').addClass('active');
+        $('#step4Container').addClass('show').removeClass('hidden');
+        addScoreInputs(5);
+    });
+    $(document).on('click', '#mvStep5', function(event){
+        $('#step5Container').addClass('show').removeClass('hidden');
+        $(this).remove();
+    });
+    $(document).on('click', '#mvStep6', function(event){
+        $('#step6Container').addClass('show').removeClass('hidden');
+        $(this).remove();
+    });
+
+
+    $( ".select-add-hundred" ).each(function() {
+        var i;
+        /*<![CDATA[*/
+        for(i=1;i<=100;i++) {
+            $(this).append('<option>'+i+'% </option>');
+        }
+        /*]]>*/
+    });
+
+    $( "#yearChoice" ).change(function() {
+        var val = $('#yearChoice').val();
+        if(val == 'Pick a year'){
+            $('#step3Container').addClass('hidden').removeClass('show');
+        }
+        else{
+            showYearButtons(val);
+            $('#step3Container').addClass('show').removeClass('hidden');
+        }
+    });
+
+    $(document).on('change', '.exam-complete', function(event){
+        var val = $(this).val();
+        if(val == 'Pick' || val == 'No'){
+            $(this).closest('.exam-row').find('.exam-score').addClass('hidden').removeClass('show');
+            $(this).closest('.exam-row').find('.exam-score-lable').addClass('hidden').removeClass('show');
+        }
+        else{
+            $(this).closest('.exam-row').find('.exam-score').addClass('show').removeClass('hidden');
+            $(this).closest('.exam-row').find('.exam-score-lable').addClass('show').removeClass('hidden');
+        }
+    });
+
+
+    function addScoreInputs(i) {
+
+        if(i==1){
+            $('#year1Score').addClass('hidden').removeClass('show');
+            $('#year2Score').addClass('hidden').removeClass('show');
+            $('#year3Score').addClass('hidden').removeClass('show');
+            $('#year4Score').addClass('hidden').removeClass('show');
+        }
+        else if(i==2){
+            $('#year1Score').addClass('show').removeClass('hidden');
+            $('#year2Score').addClass('hidden').removeClass('show');
+            $('#year3Score').addClass('hidden').removeClass('show');
+            $('#year4Score').addClass('hidden').removeClass('show');
+        }
+        else if(i==3){
+            $('#year1Score').addClass('show').removeClass('hidden');
+            $('#year2Score').addClass('show').removeClass('hidden');
+            $('#year3Score').addClass('hidden').removeClass('show');
+            $('#year4Score').addClass('hidden').removeClass('show');
+        }
+        else if(i==4){
+            $('#year1Score').addClass('show').removeClass('hidden');
+            $('#year2Score').addClass('show').removeClass('hidden');
+            $('#year3Score').addClass('show').removeClass('hidden');
+            $('#year4Score').addClass('hidden').removeClass('show');
+        }
+        else if(i==5){
+            $('#year1Score').addClass('show').removeClass('hidden');
+            $('#year2Score').addClass('show').removeClass('hidden');
+            $('#year3Score').addClass('show').removeClass('hidden');
+            $('#year4Score').addClass('show').removeClass('hidden');
+        }
+    }
+    /*<![CDATA[*/
+    function showYearButtons(year) {
+        var i;
+        var len = year.length;
+        year = year.slice(0,-len + 1);
+            for(i=1;i<=year;i++) {
+                $('#year'+i+'Holder').addClass('show').removeClass('hidden');
+            }
+            for(i=5;i>year;i--) {
+                $('#year'+i+'Holder').addClass('hidden').removeClass('show');
+            }
+            var width = $(window).width();
+            if(width<992){
+                for(i=1;i<=year;i++) {
+                    $('#year'+i+'Holder').addClass('col-sm-12');
+                }
+            }
+            else if(width>=992){
+                for(i=1;i<=year;i++) {
+                    $('#year'+i+'Holder').addClass('col-md-2');
+                }
+            }
+    }
+
+    function postData() {
+        var grade = $('#gradeSel').val();
+        var courseLen = $('#yearChoice').val();
+        var currentYear = $('.year-btn.active').text();
+        var yearScores = getYearScores();
+        var moduleCurrent = modCurrent();
+        var moduleDone = modDone();
+        var moduleFut = modFut();
+        
+        var uri = encodeURI("/qualification/uni_gb/"+grade+"/"+courseLen+"/"+currentYear+"/"+yearScores+"/"+moduleCurrent+"/"+moduleDone+"/"+moduleFut+"");
+        var bodyHTML = $('#replaceHTML').html();
+        localStorage.setItem("localHTMLData",bodyHTML);
+        adaptCookies();
+        window.location.replace(uri);
+    }
+
+    function adaptCookies() {
+        var grade = $('#gradeSel').val();
+        var courseLen = $('#yearChoice').val();
+        var yearWeight ="";
+        var yearScore ="";
+        var moduleNames ="";
+        var moduleScore ="";
+        var moduleDoneWeight="";
+        var moduleCurrentWeight="";
+        var examName="";
+        var examWeight="";
+        var examComplete="";
+        var examScore="";
+        var modFutWeight="";
+
+        $('.year-weight').each(function () {
+            yearWeight = yearWeight +$(this).val()+"$";
+        });
+        $('.year-score.show').each(function () {
+            yearScore= yearScore +$(this).val()+"$";
+        });
+        $('.module-name').each(function () {
+            moduleNames = moduleNames +$(this).val()+"$";
+        });
+        $('.module-score').each(function () {
+            moduleScore = moduleScore +$(this).val()+"$";
+        });
+        $('.mod-done-weighting').each(function () {
+            moduleDoneWeight = moduleDoneWeight +$(this).val()+"$";
+        });
+        $('.mod-current-weighting').each(function () {
+            moduleCurrentWeight = moduleCurrentWeight +$(this).val()+"$";
+        });
+        $('.exam-name').each(function () {
+            examName = examName +$(this).val()+"$";
+        });
+        $('.exam-weighting').each(function () {
+            examWeight = examWeight +$(this).val()+"$";
+        });
+        $('.exam-complete').each(function () {
+            examComplete = examComplete +$(this).val()+"$";
+        });
+        $('.exam-score.show').each(function () {
+            examScore = examScore +$(this).val()+"$";
+        });
+        $('.mod-fut-weighting').each(function () {
+            modFutWeight = modFutWeight +$(this).val()+"$";
+        });
+
+        setCookie("grade",grade,2);
+        setCookie("length",courseLen,2);
+        setCookie("yearWeight",yearWeight,2);
+        setCookie("yearScore",yearScore,2);
+        setCookie("modName",moduleNames,2);
+        setCookie("modScore",moduleScore,2);
+        setCookie("modDoneW",moduleDoneWeight,2);
+        setCookie("modCurrW",moduleCurrentWeight,2);
+        setCookie("examName",examName,2);
+        setCookie("examWeight",examWeight,2);
+        setCookie("examComp",examComplete,2);
+        setCookie("examScore",examScore,2);
+        setCookie("modFutW",modFutWeight,2);
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function loadCookies() {
+        var grade = getCookie("grade");
+        var courseLen = getCookie("length");
+        var yearWeight = getCookie("yearWeight").split("$");
+        var yearScore = getCookie("yearScore").split("$");
+        var moduleNames = getCookie("modName").split("$");
+        var moduleScore = getCookie("modScore").split("$");
+        var moduleDoneWeight= getCookie("modDoneW").split("$");
+        var moduleCurrentWeight= getCookie("modCurrW").split("$");
+        var examName= getCookie("examName").split("$");
+        var examWeight= getCookie("examWeight").split("$");
+        var examComplete= getCookie("examComp").split("$");
+        var examScore= getCookie("examScore").split("$");
+        var modFutWeight= getCookie("modFutW").split("$");
+
+        $('#gradeSel').val(grade);
+        $('#yearChoice').val(courseLen);
+
+        var i=0;
+        $('.year-weight').each(function () {
+            $(this).attr('value',yearWeight[i]);
+            i++;
+        });
+        var i=0;
+        $('.year-score.show').each(function () {
+            $(this).attr('value',yearScore[i]);
+            i++;
+        });
+        var i=0;
+        $('.module-name').each(function () {
+            $(this).attr('value',moduleNames[i]);
+            i++;
+        });
+
+        var i=0;
+        $('.module-score').each(function () {
+            $(this).attr('value',moduleScore[i]);
+            i++;
+        });
+
+        var i=0;
+        $('.mod-done-weighting').each(function () {
+            $(this).attr('value',moduleDoneWeight[i]);
+            i++;
+        });
+
+        var i=0;
+        $('.mod-current-weighting').each(function () {
+            $(this).attr('value',moduleCurrentWeight[i]);
+            i++;
+        });
+
+        var i=0;
+        $('.exam-name').each(function () {
+            $(this).attr('value',examName[i]);
+            i++;
+        });
+
+        var i=0;
+        $('.exam-weighting').each(function () {
+            $(this).attr('value',examWeight[i]);
+            i++;
+        });
+
+        var i=0;
+        $('.exam-complete').each(function () {
+            $(this).val(examComplete[i]);
+            i++;
+        });
+
+        var i=0;
+        $('.exam-score.show').each(function () {
+            $(this).attr('value',examScore[i]);
+            i++;
+        });
+
+        var i=0;
+        $('.mod-fut-weighting').each(function () {
+            $(this).attr('value',modFutWeight[i]);
+            i++;
+        });
+
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    
+    function getYearScores() {
+        var year;
+        var weight;
+        var score;
+        var yearScores = "";
+        $(".year-holder.show").each(function( index ) {
+            year = $(this).find('.year-btn').text();
+            weight = $(this).find('.year-weight').val();
+            score = $(this).find('.year-score.show').val();
+            yearScores = yearScores + ""+year+"&"+weight+"&"+score+"$";
+        });
+
+        return yearScores;
+    }
+
+    function modDone() {
+        var name;
+        var score;
+        var weight;
+        var moduleDone="";
+        $(".module-row-done").each(function( index ) {
+            name = $(this).find('.module-name').val();
+            score = $(this).find('.module-score').val();
+            weight = $(this).find('.mod-done-weighting').val();
+            moduleDone = moduleDone + ""+name+"&"+score+"&"+weight+"$";
+        });
+
+        return moduleDone;
+    }
+
+    function modFut() {
+        var name;
+        var weight;
+        var moduleFut="";
+        $(".module-row-fut").each(function( index ) {
+            name = $(this).find('.module-name').val();
+            weight = $(this).find('.mod-fut-weighting').val();
+            moduleFut = moduleFut + ""+name+"&"+weight+"$";
+        });
+
+        return moduleFut;
+    }
+
+    function modCurrent() {
+        var name;
+        var weight;
+        var moduleCurrent="";
+        $(".module-row-current").each(function() {
+            name = $(this).find('.module-name').val();
+            weight = $(this).find('.mod-current-weighting').val();
+            moduleCurrent = moduleCurrent + ""+name+"&"+weight+"%";
+            var eName;
+            var eWeight;
+            var eComplete;
+            var eScore;
+            $(this).find('.exam-row').each(function () {
+                eName = $(this).find('.exam-name').val();
+                eWeight = $(this).find('.exam-weighting').val();
+                eComplete = $(this).find('.exam-complete').val();
+                eScore = $(this).find('.exam-score').val();
+                moduleCurrent = moduleCurrent+eName+"&"+eWeight+"&"+eComplete+"&"+eScore+"|";
+            });
+            moduleCurrent = moduleCurrent + "$";
+        });
+        return moduleCurrent;
+    }
+    /*]]>*/
+
+
+
+    function validityCheck() {
+        var grade;
+        var courseLen;
+        var currentYearWeight;
+        var yearScore;
+        var modDoneName;
+        var modDoneScore;
+        var modDoneWeight;
+        var modFutName;
+        var modFutWeight;
+        var modCurrName;
+        var modCurrWeight;
+        var examComplete;
+        var examName;
+        var examWeight;
+        var examScore;
+        grade = checkGrade();
+        courseLen = checkCourseLen();
+        currentYearWeight = checkCurrentYearWeight();
+        yearScore = checkCurrentYearScore();
+        modDoneName = checkModDoneName();
+        modDoneScore = checkModDoneScore();
+        modDoneWeight = checkModDoneWeight();
+        modFutName = checkModFutName();
+        modFutWeight = checkModFutWeight();
+        modCurrName = checkModCurrName();
+        modCurrWeight = checkModCurrWeight();
+        examComplete = checkExamCompleted();
+        examName = checkExamName();
+        examWeight = checkExamWeight();
+        examScore = checkExamScore();
+
+        /*<![CDATA[*/
+        if(grade ==  true && courseLen == true && currentYearWeight == true && yearScore == true && modDoneName == true &&
+        modDoneScore == true && modDoneWeight == true && modFutWeight == true && modFutName == true && modCurrName == true && modCurrWeight == true && examComplete == true
+        && examName == true && examWeight == true && examScore == true){
+            postData();
+        }
+        else{
+
+
+            if(grade ==  false){
+                alert("Select a grade");
+                var p = $("#gradeSel").offset();
+            }
+            else if(courseLen == false){
+                alert("Select a course length");
+                var p = $("#yearChoice").offset();
+            }
+            else if(currentYearWeight == false){
+                alert("Complete your year weightings");
+                var p = $("#step3Container").offset();
+            }
+            else if(yearScore == false){
+                alert("Complete your year score");
+                var p = $("#step3Container").offset();
+            }
+            else if(modDoneName == false){
+                alert("Fill in all module names");
+                var p = $("#step4Container").offset();
+            }
+            else if(modDoneScore == false){
+                alert("Fill in all module scores");
+                var p = $("#step4Container").offset();
+            }
+            else if(modDoneWeight == false){
+                alert("Fill in all module weights");
+                var p = $("#step4Container").offset();
+            }
+            else if(modFutWeight == false){
+                alert("Fill in all module weights");
+                var p = $("#step6Container").offset();
+            }
+            else if(modFutName == false){
+                alert("Fill in all module names");
+                var p = $("#step6Container").offset();
+            }
+            else if(modCurrName == false){
+                alert("Fill in all module names");
+                var p = $("#step5Container").offset();
+            }
+            else if(modCurrWeight == false){
+                alert("Fill in all module weights");
+                var p = $("#step5Container").offset();
+            }
+            else if(examComplete == false){
+                alert("Select if your exams are done (Yes/No)");
+                var p = $("#step5Container").offset();
+            }
+            else if(examName == false){
+                alert("Fill in all exam names");
+                var p = $("#step5Container").offset();
+            }
+            else if(examWeight == false){
+                alert("Fill in all exam weights");
+                var p = $("#step5Container").offset();
+            }
+            else if(examScore == false){
+                alert("Fill in all exam scores");
+                var p = $("#step5Container").offset();
+            }
+            $(window).scrollTop(p.top);
+        }
+        /*]]>*/
+    }
+
+    function checkGrade() {
+        var val = $('#gradeSel').val();
+        if(val == 'Pick a grade'){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    function checkCourseLen() {
+        var val = $('#yearChoice').val();
+        if(val == 'Pick a year'){
+            return false;
+        }
+        else{
+            showYearButtons(val);
+            return true;
+        }
+    }
+
+    function checkCurrentYearWeight(){
+        var check = true;
+        $(".year-holder.show").each(function( index ) {
+            if($(this).find('.year-weight').val() == "" ){
+                check =false;
+            }
+        });
+        return check;
+
+    }
+
+    function checkCurrentYearScore() {
+        var check = true;
+        $(".year-holder.show").each(function( index ) {
+            if($(this).find('.year-score.show').val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkModDoneName(){
+        var check = true;
+        $(".module-row-done").each(function( index ) {
+            if($(this).find('.module-name').val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkModDoneScore(){
+        var check = true;
+        $(".module-row-done").each(function( index ) {
+            if($(this).find('.module-score').val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkModDoneWeight(){
+        var check = true;
+        $(".module-row-done").each(function( index ) {
+            if($(this).find('.mod-done-weighting').val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkModFutName(){
+        var check = true;
+        $(".module-row-fut").each(function( index ) {
+            if($(this).find('.module-name').val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkModFutWeight(){
+        var check = true;
+        $(".module-row-fut").each(function( index ) {
+            if($(this).find('.mod-fut-weighting').val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkModCurrName(){
+        var check = true;
+        $(".module-row-current").each(function( index ) {
+            if($(this).find('.module-name').val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkModCurrWeight(){
+        var check = true;
+        $(".module-row-current").each(function( index ) {
+            if($(this).find('.mod-current-weighting').val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkExamCompleted(){
+        var check = true;
+        $(".exam-complete").each(function( index ) {
+            if($(this).val() ==  "Pick"){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkExamName(){
+        var check = true;
+        $(".exam-name").each(function( index ) {
+            if($(this).val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkExamWeight(){
+        var check = true;
+        $(".exam-weighting").each(function( index ) {
+            if($(this).val() ==  ""){
+                check =false;
+            }
+        });
+        return check;
+    }
+
+    function checkExamScore(){
+        var check = true;
+        $(".exam-score.show").each(function( index ) {
+            if($(this).val() ==  ""){
+                check = false;
+            }
+        });
+        return check;
+    }
+
+
+</script>
+
+</body>
+
+</html>
